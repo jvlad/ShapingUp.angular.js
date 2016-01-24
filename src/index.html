@@ -16,11 +16,7 @@
         <li class="list-group-item"
             ng-hide="store.product.isSold"
             ng-repeat="product in store.products">
-            <h1>{{product.name}}</h1>
-            <div>
-                <h2>Price</h2>
-                <p>{{product.price | currency}}</p>
-            </div>
+            <div ng-include="'partials/product-title.html'"></div>
             <div ng-hide="product.images.length == 0">
                 <h2>Images</h2>
                 <ul class="list-inline">
@@ -58,51 +54,65 @@
                     <h3>Reviews:</h3>
                     <form name="reviewForm"
                           ng-controller="ReviewController as reviews"
-                          ng-submit="reviews.addReview(product)">
-                    <!--  Live Preview -->
-                    <blockquote>
-                        <strong>{{reviews.review.stars}} Stars</strong>
-                        <p>{{reviews.review.body}}</p>
-                        <cite class="clearfix">—{{reviews.review.author}}</cite>
-                    </blockquote>
+                          ng-submit="reviewForm.$valid && reviews.addReview(product)"
+                          novalidate>
+                        <!--  Live Preview -->
+                        <blockquote>
+                            <strong>{{reviews.review.stars}} Stars</strong>
+                            <p>{{reviews.review.body}}</p>
+                            <cite class="clearfix">—{{reviews.review.author}}</cite>
+                        </blockquote>
 
-                    <!--  Review Form -->
-
+                        <!--  Review Form -->
                         <h4>Submit a Review</h4>
+                        <!--User review post product rating-->
                         <fieldset class="form-group">
                             <select class="form-control"
                                     ng-options="stars for stars in [5,4,3,2,1]"
                                     ng-model="reviews.review.stars"
-                                    title="Stars">
+                                    title="Stars"
+                                    required>
                                 <option value="">Rate the Product</option>
                             </select>
                         </fieldset>
 
+                        <!--User review post text-->
                         <fieldset class="form-group">
                             <textarea class="form-control"
                                       placeholder="Write a short review of the product..."
                                       ng-model="reviews.review.body"
-                                      title="Review"></textarea>
+                                      title="Review"
+                                      required></textarea>
                         </fieldset>
 
+                        <!--User email for review post-->
                         <fieldset class="form-group">
                             <input type="email"
                                    class="form-control"
                                    ng-model="reviews.review.author"
                                    placeholder="jimmyDean@example.org"
-                                   title="Email"/>
+                                   title="Email"
+                                   required/>
                         </fieldset>
 
+                        <!-- isFormValid test -->
+                        <div>reviewForm is {{reviewForm.$valid}}</div>
+
+                        <!--Submit button for the form-->
                         <fieldset class="form-group">
                             <input type="submit"
                                    class="btn btn-primary pull-right"
                                    value="Submit Review"/>
                         </fieldset>
                     </form>
+
                     <h4>Read reviews</h4>
-                    <ul id="reviews">
+                    <ul>
                         <li ng-repeat="review in product.reviews">
-                            {{review.body}}
+                            <blockquote>
+                                <strong>{{review.stars}} Stars</strong> {{review.body}}
+                                <cite class="clearfix">—{{review.author}} on {{review.creationDate | date}}</cite>
+                            </blockquote>
                         </li>
                     </ul>
                 </div>

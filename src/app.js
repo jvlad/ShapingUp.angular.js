@@ -54,6 +54,7 @@
         this.review = {};
 
         this.addReview = function(product) {
+            this.review.creationDate = Date.now();
             product.reviews.push(this.review);
             this.review = {};
         }

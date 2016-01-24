@@ -23,6 +23,10 @@ ul {
     list-style: none;
 }
 
-#reviews{
-    list-style: circle;
+.ng-dirty.ng-invalid{
+    border-color: red;
+}
+
+.ng-dirty.ng-valid{
+    border-color: green;
 }
