@@ -6,6 +6,8 @@ lib/bootstrap-3.3.6/*
 lib/bootstrap-3.3.6/css/*
 !lib/bootstrap-3.3.6/css/*custom*
 
+resources/images
+
 # Created by https://www.gitignore.io/api/intellij
 
 ### Intellij ###

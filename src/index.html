@@ -8,15 +8,59 @@
 
     <title>Store</title>
 </head>
-<body>
+<body class="col-1">
 <div ng-controller="StoreController as store">
-    <div ng-hide="store.product.isSold" ng-repeat="product in store.products">
-        <h1>{{product.name}}</h1>
-        <h2>${{product.price}}</h2>
-        <p>{{product.description}}</p>
-        <button ng-show="store.product.isPurchasable">Add to card</button>
-    </div>
+    <ul class="list-group">
+        <li class="list-group-item"
+            ng-hide="store.product.isSold"
+            ng-repeat="product in store.products">
+            <h1>{{product.name}}</h1>
+            <div>
+                <h2>Price</h2>
+                <p>{{product.price | currency}}</p>
+            </div>
+            <div ng-hide="product.images.length == 0">
+                <h2>Images</h2>
+                <ul class="list-inline">
+                    <li ng-repeat="image in product.images"><img ng-src="{{image.full}}"></li>
+                </ul>
+            </div>
+            <section ng-controller="PanelController as panel">
+                <h2>Product info</h2>
+
+                <ul class="nav nav-pills">
+                    <li ng-class="panel.getClassForSpecifiedTab(1)">
+                        <a ng-click="panel.selectTabByNumber(1)">Description</a>
+                    </li>
+
+                    <li ng-class="panel.getClassForSpecifiedTab(2)">
+                        <a ng-click="panel.selectTabByNumber(2)">Specification</a>
+                    </li>
+
+                    <li ng-class="panel.getClassForSpecifiedTab(3)">
+                        <a ng-click="panel.selectTabByNumber(3)">Reviews</a>
+                    </li>
+                </ul>
+
+                <div ng-show="panel.getSelectedTabNumber() === 1">
+                    <h3>Description:</h3>
+                    <p>This is very short undescriptive description</p>
+                </div>
+
+                <div ng-show="panel.getSelectedTabNumber() === 2">
+                    <h3>Specification:</h3>
+                    <p>This is very clear and clean specification</p>
+                </div>
+
+                <div ng-show="panel.getSelectedTabNumber() === 3">
+                    <h3>Reviews:</h3>
+                    <p>These are very positive reviews</p>
+                </div>
+            </section>
+    </ul>
 </div>
+
+</li></ul></div>
 <script type="text/javascript"
         src="../lib/angular.min.js"></script>
 <script type="text/javascript"
