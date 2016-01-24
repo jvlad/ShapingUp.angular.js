@@ -1,8 +1,10 @@
 
-bootstrap-3.3.6/*
-!bootstrap-3.3.6/css
-bootstrap-3.3.6/css/*
-!bootstrap-3.3.6/css/*custom*
+lib/*
+!lib/bootstrap-3.3.6
+lib/bootstrap-3.3.6/*
+!lib/bootstrap-3.3.6/css
+lib/bootstrap-3.3.6/css/*
+!lib/bootstrap-3.3.6/css/*custom*
 
 # Created by https://www.gitignore.io/api/intellij
 
