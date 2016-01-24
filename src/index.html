@@ -57,13 +57,13 @@
                 <div ng-show="panel.isNumberOfSelectedTab(3)">
                     <h3>Reviews:</h3>
                     <form name="reviewForm"
-                          ng-controller="ReviewController as rvContrl"
-                          ng-submit="rvContrl.addReview(product)">
+                          ng-controller="ReviewController as reviews"
+                          ng-submit="reviews.addReview(product)">
                     <!--  Live Preview -->
                     <blockquote>
-                        <strong>{{rvContrl.review.stars}} Stars</strong>
-                        <p>{{rvContrl.review.body}}</p>
-                        <cite class="clearfix">—{{rvContrl.review.author}}</cite>
+                        <strong>{{reviews.review.stars}} Stars</strong>
+                        <p>{{reviews.review.body}}</p>
+                        <cite class="clearfix">—{{reviews.review.author}}</cite>
                     </blockquote>
 
                     <!--  Review Form -->
@@ -72,7 +72,7 @@
                         <fieldset class="form-group">
                             <select class="form-control"
                                     ng-options="stars for stars in [5,4,3,2,1]"
-                                    ng-model="rvContrl.review.stars"
+                                    ng-model="reviews.review.stars"
                                     title="Stars">
                                 <option value="">Rate the Product</option>
                             </select>
@@ -81,14 +81,14 @@
                         <fieldset class="form-group">
                             <textarea class="form-control"
                                       placeholder="Write a short review of the product..."
-                                      ng-model="rvContrl.review.body"
+                                      ng-model="reviews.review.body"
                                       title="Review"></textarea>
                         </fieldset>
 
                         <fieldset class="form-group">
                             <input type="email"
                                    class="form-control"
-                                   ng-model="rvContrl.review.author"
+                                   ng-model="reviews.review.author"
                                    placeholder="jimmyDean@example.org"
                                    title="Email"/>
                         </fieldset>
