@@ -9,7 +9,8 @@
     });
 
     app.controller('PanelController', function () {
-        var selectedTabNumber = 1;
+        // todo set to 1 by default. '3' is for tests
+        var selectedTabNumber = 3;
 
         this.selectTabByNumber = function (tabNumber) {
             if (!tabNumber) {
@@ -49,13 +50,21 @@
         };
     });
 
+    app.controller('ReviewController', function(){
+        this.review = {};
+
+        this.addReview = function(product) {
+            product.reviews.push(this.review);
+            this.review = {};
+        }
+    });
+
     var gems = [
         {
             name: 'Azurite',
             price: 2,
             description: "This is very short undescriptive description of Azurite",
             specification: "This is very clear and clean specification of Azurite",
-            reviews_deprecated: "These are very positive reviews_deprecated for Azurite",
             reviews: [
                 //{
                 //    stars: ,
@@ -95,7 +104,6 @@
             price: 5.95,
             description: "This is very short undescriptive description of Bloodstone",
             specification: "This is very clear and clean specification of Bloodstone",
-            reviews_deprecated: "These are very positive reviews_deprecated for Bloodstone",
             reviews: [
                 {
                     stars: 1,
@@ -120,7 +128,6 @@
             price: 3.95,
             description: "This is very short undescriptive description of Zircon",
             specification: "This is very clear and clean specification of Zircon",
-            reviews_deprecated: "These are very positive reviews_deprecated for Zircon",
             reviews: [
                 {
                     stars: 2,

@@ -22,3 +22,7 @@ label + select {
 ul {
     list-style: none;
 }
+
+#reviews{
+    list-style: circle;
+}
