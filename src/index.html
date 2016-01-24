@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet"
           href="../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="custom.css">
 
     <title>Store</title>
 </head>
@@ -42,19 +44,58 @@
                     </li>
                 </ul>
 
-                <div ng-show="panel.getSelectedTabNumber() === 1">
+                <div ng-show="panel.isNumberOfSelectedTab(1)">
                     <h3>Description:</h3>
-                    <p>This is very short undescriptive description</p>
+                    <p>{{product.description}}</p>
                 </div>
 
-                <div ng-show="panel.getSelectedTabNumber() === 2">
+                <div ng-show="panel.isNumberOfSelectedTab(2)">
                     <h3>Specification:</h3>
-                    <p>This is very clear and clean specification</p>
+                    <p>{{product.specification}}</p>
                 </div>
 
-                <div ng-show="panel.getSelectedTabNumber() === 3">
+                <div ng-show="panel.isNumberOfSelectedTab(3)">
                     <h3>Reviews:</h3>
-                    <p>These are very positive reviews</p>
+                    <h4>Post your review</h4>
+                    <form name="reviewForm">
+                        <label>Rate: </label> <select>
+                        <option value="1">1 star</option>
+                        <option value="2">2 stars</option>
+                        <option value="3">3 stars</option>
+                        <option value="4">4 stars</option>
+                        <option value="5">5 stars</option>
+                    </select>
+
+                        <textarea id=""
+                                  cols="30"
+                                  rows="10"></textarea>
+
+                        <label> your email: </label>
+
+                        <input type="email"
+                               placeholder=" jimmy@example.com">
+
+                        <input type="submit"
+                               value="Submit">
+                    </form>
+                    <h4>Read reviews by others:</h4>
+                    <ul>
+                        <li ng-repeat="review in product.reviews">
+                            <blockquote>
+                                <p>
+                                    <b>Stars: {{review.stars}}</b>
+                                </p>
+
+                                <p>
+                                    {{review.body}}
+                                </p>
+
+                                <p>
+                                    <cite>by {{review.author}}</cite>
+                                </p>
+                            </blockquote>
+                        </li>
+                    </ul>
                 </div>
             </section>
     </ul>
