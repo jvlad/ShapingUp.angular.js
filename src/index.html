@@ -10,117 +10,19 @@
 
     <title>Store</title>
 </head>
+
 <body class="col-1">
 <div ng-controller="StoreController as store">
     <ul class="list-group">
         <li class="list-group-item"
             ng-hide="store.product.isSold"
             ng-repeat="product in store.products">
-            <div ng-include="'partials/product-title.html'"></div>
-            <div ng-hide="product.images.length == 0">
-                <h2>Images</h2>
-                <ul class="list-inline">
-                    <li ng-repeat="image in product.images"><img ng-src="{{image.full}}"></li>
-                </ul>
-            </div>
-            <section ng-controller="PanelController as panel">
-                <h2>Product info</h2>
-
-                <ul class="nav nav-pills">
-                    <li ng-class="panel.getClassForSpecifiedTab(1)">
-                        <a ng-click="panel.selectTabByNumber(1)">Description</a>
-                    </li>
-
-                    <li ng-class="panel.getClassForSpecifiedTab(2)">
-                        <a ng-click="panel.selectTabByNumber(2)">Specification</a>
-                    </li>
-
-                    <li ng-class="panel.getClassForSpecifiedTab(3)">
-                        <a ng-click="panel.selectTabByNumber(3)">Reviews</a>
-                    </li>
-                </ul>
-
-                <div ng-show="panel.isNumberOfSelectedTab(1)">
-                    <h3>Description:</h3>
-                    <p>{{product.description}}</p>
-                </div>
-
-                <div ng-show="panel.isNumberOfSelectedTab(2)">
-                    <h3>Specification:</h3>
-                    <p>{{product.specification}}</p>
-                </div>
-
-                <div ng-show="panel.isNumberOfSelectedTab(3)">
-                    <h3>Reviews:</h3>
-                    <form name="reviewForm"
-                          ng-controller="ReviewController as reviews"
-                          ng-submit="reviewForm.$valid && reviews.addReview(product)"
-                          novalidate>
-                        <!--  Live Preview -->
-                        <blockquote>
-                            <strong>{{reviews.review.stars}} Stars</strong>
-                            <p>{{reviews.review.body}}</p>
-                            <cite class="clearfix">—{{reviews.review.author}}</cite>
-                        </blockquote>
-
-                        <!--  Review Form -->
-                        <h4>Submit a Review</h4>
-                        <!--User review post product rating-->
-                        <fieldset class="form-group">
-                            <select class="form-control"
-                                    ng-options="stars for stars in [5,4,3,2,1]"
-                                    ng-model="reviews.review.stars"
-                                    title="Stars"
-                                    required>
-                                <option value="">Rate the Product</option>
-                            </select>
-                        </fieldset>
-
-                        <!--User review post text-->
-                        <fieldset class="form-group">
-                            <textarea class="form-control"
-                                      placeholder="Write a short review of the product..."
-                                      ng-model="reviews.review.body"
-                                      title="Review"
-                                      required></textarea>
-                        </fieldset>
-
-                        <!--User email for review post-->
-                        <fieldset class="form-group">
-                            <input type="email"
-                                   class="form-control"
-                                   ng-model="reviews.review.author"
-                                   placeholder="jimmyDean@example.org"
-                                   title="Email"
-                                   required/>
-                        </fieldset>
-
-                        <!-- isFormValid test -->
-                        <div>reviewForm is {{reviewForm.$valid}}</div>
-
-                        <!--Submit button for the form-->
-                        <fieldset class="form-group">
-                            <input type="submit"
-                                   class="btn btn-primary pull-right"
-                                   value="Submit Review"/>
-                        </fieldset>
-                    </form>
-
-                    <h4>Read reviews</h4>
-                    <ul>
-                        <li ng-repeat="review in product.reviews">
-                            <blockquote>
-                                <strong>{{review.stars}} Stars</strong> {{review.body}}
-                                <cite class="clearfix">—{{review.author}} on {{review.creationDate | date}}</cite>
-                            </blockquote>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            <product-title></product-title>
+            <product-images ng-hide="product.images.length == 0"></product-images>
+            <product-info-panels></product-info-panels>
         </li>
     </ul>
 </div>
-
 <script type="text/javascript"
         src="../lib/angular.min.js"></script>
 <script type="text/javascript"
