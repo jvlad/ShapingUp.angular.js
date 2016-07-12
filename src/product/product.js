@@ -74,5 +74,4 @@
             controllerAs: 'panels'
         };
     });
-
 })();

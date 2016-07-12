@@ -31,8 +31,6 @@
         }
     });
 
-
-
     var gems = [
         {
             name: 'Azurite',
@@ -40,25 +38,23 @@
             description: "This is very short undescriptive description of Azurite",
             specification: "This is very clear and clean specification of Azurite",
             reviews: [
-                //{
-                //    stars: ,
-                //    body: "",
-                //    author: ""
-                //}
                 {
                     stars: 0,
                     body: "This full-color book will show you how to make your websites more interactive and your interfaces more interesting and intuitive.",
-                    author: "Jon Duckett"
+                    author: "Jon Duckett",
+                    creationDate: 1454345881100
                 },
                 {
                     stars: 1,
                     body: "JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-                    author: "Marijn Haverbeke"
+                    author: "Marijn Haverbeke",
+                    creationDate: 1454345881100
                 },
                 {
                     stars: 2,
                     body: "It’s easy to learn parts of JavaScript, but much harder to learn it completely—or even sufficiently—whether you’re new to the language or have used it for years. With the 'You Don’t Know JS' book series, you’ll get a more complete understanding of JavaScript, including trickier parts of the language that many experienced JavaScript programmers simply avoid.",
-                    author: "Kyle Simpson"
+                    author: "Kyle Simpson",
+                    creationDate: 1454345881100
                 }
             ],
             images: [
@@ -82,17 +78,20 @@
                 {
                     stars: 1,
                     body: "This full-color book will show you how to make your websites more interactive and your interfaces more interesting and intuitive.",
-                    author: "Jon Duckett"
+                    author: "Jon Duckett",
+                    creationDate: 1454345881100
                 },
                 {
                     stars: 2,
                     body: "JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-                    author: "Marijn Haverbeke"
+                    author: "Marijn Haverbeke",
+                    creationDate: 1454345881100
                 },
                 {
                     stars: 3,
                     body: "It’s easy to learn parts of JavaScript, but much harder to learn it completely—or even sufficiently—whether you’re new to the language or have used it for years. With the 'You Don’t Know JS' book series, you’ll get a more complete understanding of JavaScript, including trickier parts of the language that many experienced JavaScript programmers simply avoid.",
-                    author: "Kyle Simpson"
+                    author: "Kyle Simpson",
+                    creationDate: 1454345881100
                 }
             ],
             images: []
@@ -106,17 +105,20 @@
                 {
                     stars: 2,
                     body: "This full-color book will show you how to make your websites more interactive and your interfaces more interesting and intuitive.",
-                    author: "Jon Duckett"
+                    author: "Jon Duckett",
+                    creationDate: 1454345881100
                 },
                 {
                     stars: 3,
                     body: "JavaScript lies at the heart of almost every modern web application, from social apps to the newest browser-based games. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-                    author: "Marijn Haverbeke"
+                    author: "Marijn Haverbeke",
+                    creationDate: 1454345881100
                 },
                 {
                     stars: 4,
                     body: "It’s easy to learn parts of JavaScript, but much harder to learn it completely—or even sufficiently—whether you’re new to the language or have used it for years. With the 'You Don’t Know JS' book series, you’ll get a more complete understanding of JavaScript, including trickier parts of the language that many experienced JavaScript programmers simply avoid.",
-                    author: "Kyle Simpson"
+                    author: "Kyle Simpson",
+                    creationDate: 1454345881100
                 }
             ],
             images: [
